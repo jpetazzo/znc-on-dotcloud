@@ -1,0 +1,8 @@
+znc:
+  type: custom
+  buildscript: builder
+  ports:
+    irc: tcp
+  process: znc -f
+  systempackages:
+    - znc
