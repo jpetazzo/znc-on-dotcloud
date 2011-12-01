@@ -1,9 +1,10 @@
-#!/bin/sh
-[ "$ZNC_USER" ] || {
+#!/bin/bash
+. ~/profile
+[ "${ZNC_USER:=$SERVICE_ZNC_USER}" ] || {
     echo "ZNC_USER not set. Aborting."
     exit 1
 }
-[ "$ZNC_PASS" ] || {
+[ "${ZNC_PASS:=$SERVICE_ZNC_PASS}" ] || {
     echo "ZNC_PASS not set. Aborting."
     exit 1
 }
@@ -39,3 +40,4 @@ LoadModule = lastseen
         </Chan>
 </User>
 EOF
+exec znc -f

@@ -1,8 +1,9 @@
 znc:
   type: custom
-  buildscript: builder
+  buildscript: znc/builder
   ports:
     irc: tcp
-  process: znc -f
   systempackages:
     - znc
+  #znc_user: johndoe
+  #znc_pass: OpenSesame
