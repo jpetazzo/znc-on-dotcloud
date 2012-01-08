@@ -25,6 +25,7 @@ LoadModule = lastseen
         Buffer     = 200
         KeepBuffer = false
         ChanModes  = +stn
+	MaxJoins   = 1
 
         LoadModule = admin
         LoadModule = awaynick
