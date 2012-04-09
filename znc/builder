@@ -1,4 +1,3 @@
 #!/bin/sh
 cd "$(dirname "$0")"
 cp run ~
-env | grep ^SERVICE_ZNC_ > ~/profile
