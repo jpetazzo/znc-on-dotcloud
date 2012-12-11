@@ -12,9 +12,11 @@ To run your own ZNC bouncer on dotCloud, just do the following
 (don't forget to change ``mylogin`` and ``somepassword``, of course)::
 
   git clone git://github.com/jpetazzo/znc-on-dotcloud.git
-  dotcloud push bouncer znc-on-dotcloud
-  dotcloud var set bouncer ZNC_USER=mylogin ZNC_PASS=somepassword
-  dotcloud info bouncer.znc
+  cd znc-on-dotcloud
+  dotcloud create bouncer
+  dotcloud push bouncer
+  dotcloud env set bouncer ZNC_USER=mylogin ZNC_PASS=somepassword
+  dotcloud info znc
 
 In the output of the last command, look for something like:
 
