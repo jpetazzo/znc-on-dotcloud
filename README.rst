@@ -12,16 +12,17 @@ To run your own ZNC bouncer on dotCloud, just do the following
 (don't forget to change ``mylogin`` and ``somepassword``, of course)::
 
   git clone git://github.com/jpetazzo/znc-on-dotcloud.git
-  dotcloud push bouncer znc-on-dotcloud
-  dotcloud var set bouncer ZNC_USER=mylogin ZNC_PASS=somepassword
-  dotcloud info bouncer.znc
+  cd znc-on-dotcloud
+  dotcloud create bouncer (type ``Y`` to link it to the current directory)
+  dotcloud push
+  dotcloud env set ZNC_USER=mylogin ZNC_PASS=somepassword
+  dotcloud info znc
 
 In the output of the last command, look for something like:
 
 .. code-block:: yaml
 
-   - name: irc
-     url: tcp://bouncer-johndoe.dotcloud.com:12345
+   - irc: tcp://bouncer-johndoe.dotcloud.com:12345
 
 The last line contains the host (``bouncer-johndoe.dotcloud.com``)
 and the port (``12345``) that you should enter in your IRC client.
@@ -46,10 +47,10 @@ there, and push your service again.
 Alternate Configuration Method
 ------------------------------
 
-Note that instead of using ``dotcloud var``, you can also edit
+Note that instead of using ``dotcloud env``, you can also edit
 ``dotcloud.yml``, uncomment ``znc_user`` and ``znc_pass`` and set
 them to whatever you like. Note that the run-time variables
-(set with ``dotcloud var``) will override the build-time variables
+(set with ``dotcloud env``) will override the build-time variables
 (set in ``dotcloud.yml``).
 
 See also the warning above about pushing a git repository.
